@@ -3,6 +3,7 @@ name: PR Coverage Check
 on:
     pull_request:
         types: [opened, synchronize]
+    workflow_dispatch:
 
 jobs:
     coverage:
