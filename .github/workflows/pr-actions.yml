@@ -1,8 +1,8 @@
 name: PR Coverage Check
 
 on:
-    push:
-        #types: [opened, synchronize]
+    pull_request:
+        types: [opened, synchronize]
     workflow_dispatch:
 
 jobs:
