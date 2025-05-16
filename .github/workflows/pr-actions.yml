@@ -36,6 +36,5 @@ jobs:
           mvn sonar:sonar \
             -Dsonar.projectKey=sunbird-lern \
             -Dsonar.organization=sunbird-lern \
-            -Dsonar.login=$SONAR_TOKEN \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.coverage.jacoco.xmlReportPaths=all-actors/target/site/jacoco/jacoco.xml,notification-sdk/target/site/jacoco/jacoco.xml,service/target/site/jacoco/jacoco.xml
