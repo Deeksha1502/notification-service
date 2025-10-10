@@ -79,9 +79,9 @@
         <version>${junit.version}</version>
     </dependency>
     <dependency>
-        <groupId>com.typesafe.akka</groupId>
-        <artifactId>akka-testkit_${scala.major.version}</artifactId>
-        <version>${typesafe.akka.version}</version>
+        <groupId>org.apache.pekko</groupId>
+        <artifactId>pekko-testkit_${scala.major.version}</artifactId>
+        <version>${pekko.version}</version>
         <scope>test</scope>
     </dependency>
     <dependency>
