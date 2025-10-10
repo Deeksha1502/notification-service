@@ -45,7 +45,7 @@ public class HealthController extends BaseController {
       CompletionStage<Result> response = handleRequest(request, null, HEALTH_ACTOR_OPERATION_NAME, request());
       return response;
     }  catch (Exception e) {
-      return CompletableFuture.completedFuture(ResponseHandler.handleFailureResponse(request,e ,httpExecutionContext,request()));
+      return CompletableFuture.completedFuture(ResponseHandler.handleFailureResponse(request,e ,httpExecutionContext,request));
     }
   }
 
@@ -66,7 +66,7 @@ public class HealthController extends BaseController {
       cf.complete(Json.toJson(response));
       return CompletableFuture.completedFuture(ok(play.libs.Json.toJson(response)));
       }  catch (Exception e) {
-        return CompletableFuture.completedFuture(ResponseHandler.handleFailureResponse(request,e,httpExecutionContext,request()));
+        return CompletableFuture.completedFuture(ResponseHandler.handleFailureResponse(request,e,httpExecutionContext,request));
       }
   }
 

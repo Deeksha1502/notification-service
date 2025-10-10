@@ -43,7 +43,7 @@ public class NotificationController extends BaseController {
       return response;
     }catch (Exception ex){
       return CompletableFuture.completedFuture(
-              ResponseHandler.handleFailureResponse(request, ex, httpExecutionContext, request() ));
+              ResponseHandler.handleFailureResponse(request, ex, httpExecutionContext, request ));
     }
 
   }

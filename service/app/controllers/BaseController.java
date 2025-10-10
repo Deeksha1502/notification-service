@@ -1,6 +1,6 @@
 package controllers;
 
-import akka.actor.ActorRef;
+import org.apache.pekko.actor.ActorRef;
 import org.apache.commons.collections.CollectionUtils;
 import org.sunbird.Application;
 import org.sunbird.common.exception.BaseException;
@@ -104,9 +104,9 @@ public class BaseController extends Controller {
       request = (Request) RequestMapper.mapRequest(request(), Request.class);
     } catch (Exception ex) {
       return CompletableFuture.completedFuture(
-      ResponseHandler.handleFailureResponse(request, ex, httpExecutionContext, null ));
+      ResponseHandler.handleFailureResponse(request, ex, httpExecutionContext, request() ));
     }
     return CompletableFuture.completedFuture(
-            ResponseHandler.handleSuccessResponse(request, response, httpExecutionContext, null));
+            ResponseHandler.handleSuccessResponse(request, response, httpExecutionContext, request()));
   }
 }
