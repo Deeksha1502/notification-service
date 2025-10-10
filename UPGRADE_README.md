@@ -50,22 +50,6 @@ application.conf files updated with Pekko namespaces:
 - Serialization bindings updated
 - Dispatcher references changed
 
-Remote configuration migrated from netty.tcp to Artery:
-```
-remote {
-  artery {
-    enabled = on
-    transport = tcp
-    canonical {
-      hostname = "127.0.0.1"
-      port = 8088
-    }
-    advanced {
-      maximum-frame-size = 30000000b
-    }
-  }
-}
-```
 
 ### Play 3.0 API Updates
 
@@ -111,18 +95,6 @@ cd service
 mvn play2:dist
 ```
 
-## Build Status
-
-Compilation: SUCCESS
-- All modules compile without errors
-- No Scala 2.12/2.13 version conflicts
-- Dependency tree verified clean
-
-Tests: PowerMock tests fail with Java 11+ due to module system incompatibility. This is a known issue. Resolution options:
-1. Migrate tests to Mockito (without PowerMock)
-2. Add JVM args: --add-opens java.base/java.lang=ALL-UNNAMED
-3. Use JUnit 5 with newer mocking frameworks
-
 ## Migration Impact
 
 **Business Logic**: No changes to business logic or functionality
@@ -132,14 +104,6 @@ Tests: PowerMock tests fail with Java 11+ due to module system incompatibility. 
 **Code Changes**: Primarily package name updates from akka to pekko
 
 **License**: Now compliant with Apache 2.0 throughout the stack
-
-## Testing Recommendations
-
-1. Execute full unit test suite
-2. Run integration tests for actor communication
-3. Perform regression testing for all features
-4. Conduct performance benchmarking
-5. Test under production-like load
 
 ## Known Issues
 
