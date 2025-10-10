@@ -10,6 +10,7 @@ import org.sunbird.request.LoggerUtil;
 import org.sunbird.common.response.Response;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import utils.RequestMapper;
 import validators.RequestValidatorFunction;
@@ -96,17 +97,17 @@ public class BaseController extends Controller {
    *
    * @return
    */
-  public CompletionStage<Result> handleLogRequest() {
+  public CompletionStage<Result> handleLogRequest(Http.Request req) {
     startTrace("handleLogRequest");
     Response response = new Response();
     Request request = null;
     try {
-      request = (Request) RequestMapper.mapRequest(request(), Request.class);
+      request = (Request) RequestMapper.mapRequest(req, Request.class);
     } catch (Exception ex) {
       return CompletableFuture.completedFuture(
-      ResponseHandler.handleFailureResponse(request, ex, httpExecutionContext, request() ));
+      ResponseHandler.handleFailureResponse(request, ex, httpExecutionContext, req ));
     }
     return CompletableFuture.completedFuture(
-            ResponseHandler.handleSuccessResponse(request, response, httpExecutionContext, request()));
+            ResponseHandler.handleSuccessResponse(request, response, httpExecutionContext, req));
   }
 }

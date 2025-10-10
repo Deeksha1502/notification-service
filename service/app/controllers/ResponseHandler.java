@@ -70,7 +70,7 @@ public class ResponseHandler extends BaseController {
 
     public static Result handleFailureResponse(Request request,Object exception, HttpExecutionContext httpExecutionContext, play.mvc.Http.Request req) {
         Result result;
-        Response response = ResponseFactory.getFailureMessage(exception, req);
+        Response response = ResponseFactory.getFailureMessage(exception, request);
         switch (response.getResponseCode().getCode()) {
             case HttpStatus.SC_BAD_REQUEST:
                 result = Results.badRequest(Json.toJson(response));
@@ -95,7 +95,7 @@ public class ResponseHandler extends BaseController {
      */
     public static Result handleFailureResponse(Object exception,Http.Request request) throws BaseException {
         Result result;
-        Request sbReq = RequestMapper.createSBRequest(request());
+        Request sbReq = RequestMapper.createSBRequest(request);
         result = handleFailureResponse(sbReq, exception,null,request);
         return result;
     }
