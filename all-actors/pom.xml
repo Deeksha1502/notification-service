@@ -79,9 +79,9 @@
         <version>${junit.version}</version>
     </dependency>
     <dependency>
-        <groupId>com.typesafe.akka</groupId>
-        <artifactId>akka-testkit_${scala.major.version}</artifactId>
-        <version>${typesafe.akka.version}</version>
+        <groupId>org.apache.pekko</groupId>
+        <artifactId>pekko-testkit_${scala.major.version}</artifactId>
+        <version>${pekko.version}</version>
         <scope>test</scope>
     </dependency>
     <dependency>
@@ -126,6 +126,9 @@
                                         <exclude>META-INF/*.SF</exclude>
                                         <exclude>META-INF/*.DSA</exclude>
                                         <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>org/slf4j/**</exclude>
+                                        <exclude>ch/qos/logback/**</exclude>
+                                        <exclude>META-INF/services/org.slf4j.spi.SLF4JServiceProvider</exclude>
                                     </excludes>
                                 </filter>
                             </filters>
