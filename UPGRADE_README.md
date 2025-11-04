@@ -21,7 +21,7 @@ This repository has been upgraded from Play Framework 2.7.2 with Akka 2.5.22 to 
 - SLF4J: 1.6.1 to 2.0.13
 - Logback: 1.2.3 to 1.4.14
 - Jackson: 2.13.5 to 2.14.3
-- Netty: 4.1.77.Final to 4.1.93.Final
+- Netty: 4.1.77.Final to 4.1.112.Final
 
 ## Key Changes
 
