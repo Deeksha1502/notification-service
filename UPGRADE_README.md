@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository has been upgraded from Play Framework 2.7.2 with Akka 2.5.22 to Play Framework 3.0.5 with Apache Pekko 1.0.2.
+This repository has been upgraded from Play Framework 2.7.2 with Akka 2.5.22 to Play Framework 3.0.5 with Apache Pekko 1.0.3.
 
 ## Why This Upgrade
 
