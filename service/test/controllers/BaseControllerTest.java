@@ -46,7 +46,8 @@ import java.util.Map;
   "javax.script.*",
   "javax.xml.*",
   "com.sun.org.apache.xerces.*",
-  "org.xml.*"
+  "org.xml.*",
+  "java.util.concurrent.*"
 })
 
 public class BaseControllerTest {
