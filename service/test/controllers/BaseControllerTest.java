@@ -60,7 +60,6 @@ public class BaseControllerTest {
 		try {
 			application =
 					new GuiceApplicationBuilder()
-							.in(new File("path/to/app"))
 							.in(Mode.TEST)
 							.disable(StartModule.class)
 							.build();
@@ -79,6 +78,7 @@ public class BaseControllerTest {
 			PowerMockito.mockStatic(OnRequestHandler.class);
 		} catch (Exception e) {
 			System.out.println("exception occurred " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
