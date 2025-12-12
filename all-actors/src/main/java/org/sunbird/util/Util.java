@@ -41,6 +41,26 @@ public class Util {
         return template;
     }
 
+    private static com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+    private static com.fasterxml.jackson.databind.ObjectMapper javaMapper = new com.fasterxml.jackson.databind.ObjectMapper();
+
+    static {
+        mapper.findAndRegisterModules();
+        mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+        
+        javaMapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+    }
+
+    public static <T> java.util.List<T> convertToList(Object object, com.fasterxml.jackson.core.type.TypeReference<java.util.List<T>> typeReference) {
+        try {
+            String json = mapper.writeValueAsString(object);
+            return javaMapper.readValue(json, typeReference);
+        } catch (Exception e) {
+            throw new org.sunbird.common.exception.BaseException(IResponseMessage.Key.INVALID_REQUESTED_DATA,
+                "Invalid data format: " + e.getMessage(),ResponseCode.CLIENT_ERROR.getCode());
+        }
+    }
+
     public static Response writeDataToKafka(
             NotificationRequest notification,
             Response response,
